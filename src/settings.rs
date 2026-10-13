@@ -40,6 +40,7 @@ pub struct FontSettings {
     pub size: f32,
     pub scale_factor: f32,
     pub font_type: Font,
+    pub scroll_sensitivity: f32,
 }
 
 impl Default for FontSettings {
@@ -47,7 +48,8 @@ impl Default for FontSettings {
         Self {
             size: 14.0,
             scale_factor: 1.3,
-            font_type: Font::MONOSPACE,
+            font_type: Font::with_name("Source Code Pro"),
+            scroll_sensitivity: 3.0,
         }
     }
 }

@@ -13,6 +13,7 @@ pub struct TermFont {
     pub(crate) font_type: Font,
     pub(crate) scale_factor: f32,
     pub(crate) measure: Size<f32>,
+    pub(crate) scroll_sensitivity: f32,
 }
 
 impl TermFont {
@@ -26,13 +27,10 @@ impl TermFont {
                 settings.scale_factor,
                 settings.font_type,
             ),
+            scroll_sensitivity: settings.scroll_sensitivity,
         }
     }
 
-    pub fn sync(&mut self) {
-        self.measure =
-            font_measure(self.size, self.scale_factor, self.font_type)
-    }
 }
 
 fn font_measure(
@@ -50,6 +48,7 @@ fn font_measure(
         line_height: LineHeight::Relative(scale_factor),
         bounds: Size::INFINITE,
         wrapping: iced_core::text::Wrapping::Glyph,
+        ellipsis: iced_core::text::Ellipsis::default(),
     });
 
     paragraph.min_bounds()

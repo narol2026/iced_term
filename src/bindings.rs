@@ -12,6 +12,7 @@ pub enum BindingAction {
     Esc(String),
     LinkOpen,
     Ignore,
+    Block,
 }
 
 #[derive(Clone, Hash, Debug, PartialEq, Eq)]

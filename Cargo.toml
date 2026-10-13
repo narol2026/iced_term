@@ -22,6 +22,7 @@ edition.workspace = true
 
 [dependencies]
 alacritty_terminal = "0.25.1"
+libc = "0.2"
 iced = { workspace = true, features = [
     "canvas",
     "lazy",
